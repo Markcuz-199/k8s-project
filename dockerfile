@@ -1,8 +1,8 @@
-from node :14
+FROM node:14
 WORKDIR /usr/src/app
-  copy package*.json ./
-  run npm install
-  run npm install express
-  copy ..
-  expose 3000
-  cmd ["node","server.js"]
+COPY package*.json ./
+RUN npm install
+RUN npm install express
+COPY . .
+EXPOSE 3000
+CMD [ "node", "server.js" ]
